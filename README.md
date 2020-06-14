@@ -1,5 +1,5 @@
 # Proxy-Scraper
-Scrapes proxy from website!
+Scrapes proxyies!
 
 This is a **python3** script.
 
