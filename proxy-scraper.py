@@ -129,11 +129,12 @@ with open('file.txt', 'rb') as file:
 # Searching for proxies
 
 ip = re.findall('[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}', lines)
-protocol = re.findall('<td>SOCKS4</td>|<td>SOCKS5</td>|<td>HTTP</td>', lines)
+protocol = re.findall('<td>SOCKS4</td>|<td>SOCKS5</td>|<td>HTTP</td>|<td>HTTP, SOCKS4, SOCKS5</td>|<td>SOCKS4, SOCKS5</td>|<td>HTTP, SOCKS5</td>|<td>HTTP, SOCKS4</td>', lines)
 port = re.findall('<td>[0-9]{1,5}</td>', lines)
 
 
 # Checking if proxies were found
+
 
 if (len(ip) == 0 or len(protocol) == 0 or len(port) == 0):
 	print("No proxies found with that filter")
@@ -171,9 +172,8 @@ if (len(ip) == len(protocol) == len(port)):
 		
 		counter = counter + 1
 	print("\n")
-	os.remove("file.txt")
 
 else:
 	print("Numbers of ip/port mismatch!!")
-	os.remove("file.txt")
-	exit()
+os.remove("file.txt")
+exit()
